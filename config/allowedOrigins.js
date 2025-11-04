@@ -1,4 +1,5 @@
 const allowedOrigins = [
+
     
     'https://technotes-ghzl.onrender.com'
 ]

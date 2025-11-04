@@ -40,12 +40,13 @@ const login = async (req, res) => {
     )
 
     // Create secure cookie with refresh token 
-    res.cookie('jwt', refreshToken, {
-        httpOnly: true, //accessible only by web server 
-        secure: true, //https
-        sameSite: 'None', //cross-site cookie 
-        maxAge: 7 * 24 * 60 * 60 * 1000 //cookie expiry: set to match rT
-    })
+   // In authController.js - login function
+res.cookie('jwt', refreshToken, {
+    httpOnly: true,
+    secure: false, // FALSE for localhost (no HTTPS)
+    sameSite: 'Lax', // 'Lax' for same-site (both on localhost)
+    maxAge: 7 * 24 * 60 * 60 * 1000
+})
 
     // Send accessToken containing username and roles 
     res.json({ accessToken })
