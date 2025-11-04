@@ -43,7 +43,7 @@ const login = async (req, res) => {
    // In authController.js - login function
 res.cookie('jwt', refreshToken, {
     httpOnly: true,
-    secure: false, // FALSE for localhost (no HTTPS)
+    secure: true, // FALSE for localhost (no HTTPS)
     sameSite: 'Lax', // 'Lax' for same-site (both on localhost)
     maxAge: 7 * 24 * 60 * 60 * 1000
 })
